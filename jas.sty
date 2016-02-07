@@ -1,0 +1,83 @@
+\ProvidesPackage{jas}[2015/11/20 Personal collection of snippets]
+
+\RequirePackage{amsmath, amssymb}
+\RequirePackage{mathtools}
+
+%%%%%%%%%% Mathematics
+\let\IFF\Leftrightarrow
+
+%% Linear algebra
+%% Symbols
+\newcommand*{\Field}{\mathbb{F}}
+\newcommand*{\Tmap}{\textbf{\textit{T}}}
+\newcommand*{\Dmap}{\textbf{\textit{D}}}
+\newcommand*{\Amap}{\textbf{A}}
+\newcommand*{\Bmap}{\textbf{B}}
+\newcommand*{\Imap}{\textbf{I}}
+\newcommand*{\Qmap}{\textbf{Q}}
+\newcommand*{\Umap}{\textbf{U}}
+\newcommand*{\Vmap}{\textbf{V}}
+
+\newcommand*{\STRDBASE}{\mathcal{E}}
+
+\newcommand*{\Bbase}{\mathcal{B}}
+
+\DeclareMathOperator{\DIM}{dim}
+\DeclareMathOperator{\KERNEL}{ker}
+\DeclareMathOperator{\NULL}{null}
+\DeclareMathOperator{\RANGE}{range}
+\DeclareMathOperator{\RANK}{rank}
+
+\DeclareMathOperator{\tr}{\textbf{tr}}
+
+\let\suchthat\ni
+
+%% Symbol decorators
+\newenvironment{inlinematrix}{\left[\begin{smallmatrix}}{\end{smallmatrix}\right]}
+\newenvironment{ILM}{\begin{inlinematrix}}{\end{inlinematrix}}
+
+\newcommand*\opnorm[1]{\norm{#1}_{op}}  % = biggest stretch magnitude
+\newcommand*\frobnorm[1]{\norm{#1}_{F}} % = \sqrt{\tr(#1)}
+\newcommand*{\conj}[1]{\overline{#1}}
+\newcommand*{\compconj}[1]{#1^*}
+\newcommand*{\PERP}{^\bot}       %perpendicular complement
+
+%% Operators (macros that take meaningful arguments)
+\newcommand*{\SET}[2]{\left\{#1 \mathrel{}\middle|\mathrel{} #2\right\}}
+\newcommand*{\DOT}[2]{\langle#1,#2\rangle}
+\newcommand*{\SPAN}[1]{\operatorname{span}\left\{ #1 \right\}}
+\newcommand*{\MAPS}[3]{#1 : #2 \to #3}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+%\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+%% Calculus
+\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
+\DeclareMathOperator{\di}{d\!}
+\newcommand*\INT[4]{\int\limits_{#3}^{#4}\! #1\di #2} %Ex: \INT{f(x)}{x}{-\infty}{+infty}
+
+%%%%%%%%%% Other typography
+%% Empty block
+\newcommand{\boxdwg}[1][1cm]{
+
+  \noindent
+      {\centering\fbox{
+          \begin{minipage}{0.9\columnwidth}
+            \hfill\vspace{#1}
+        \end{minipage} }
+}}
+
+%% Latin abbreviations
+\newcommand*{\IE}{\emph{i.e.}}
+\newcommand*{\EG}{\emph{e.g.}}
+\newcommand*{\NB}{\emph{NB}}
+
+\endinput
